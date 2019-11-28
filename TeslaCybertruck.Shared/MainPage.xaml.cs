@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Uno.Extensions;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -25,22 +26,12 @@ namespace TeslaCybertruck
 		public MainPage()
 		{
 			this.InitializeComponent();
-			Storyboard groundAnimation = (Storyboard)this.Resources["GroundAnimation"];
-			groundAnimation.Begin();
-			Storyboard spinTeslaLeftWheel = (Storyboard)this.Resources["SpinTeslaLeftWheel"];
-			spinTeslaLeftWheel.Begin();
-			Storyboard spinTeslaRightWheel = (Storyboard)this.Resources["SpinTeslaRightWheel"];
-			spinTeslaRightWheel.Begin();
-			Storyboard frontLightOpacity = (Storyboard)this.Resources["FrontLightOpacity"];
-			frontLightOpacity.Begin();
-			Storyboard rotateFrontLight = (Storyboard)this.Resources["RotateFrontLight"];
-			rotateFrontLight.Begin();
-			Storyboard backLightOpacity = (Storyboard)this.Resources["BackLightOpacity"];
-			backLightOpacity.Begin();
-			Storyboard rotateBackLight = (Storyboard)this.Resources["RotateBackLight"];
-			rotateBackLight.Begin();
-			Storyboard rotateTeslaBody = (Storyboard)this.Resources["RotateTeslaBody"];
-			rotateTeslaBody.Begin();
+
+            // iterate through storyboards and start them
+            this.Resources
+                .Select(resource => resource.Value as Storyboard)
+                .Trim() // ignore non storyboards
+                .ForEach(storyboard => storyboard.Begin());
 		}
 	}
 }
