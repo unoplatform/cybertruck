@@ -18,29 +18,29 @@ namespace TeslaCybertruck
 {
 	public sealed partial class MainPage : Page
 	{
-		private bool pressedSecondTime = False;
+		//private bool pressedSecondTime = False;
 
 		public MainPage()
 		{
 			this.InitializeComponent();
-			Windows.PointerPressed += new PointerEventHandler(Windows_PointerPressed);
+			//Windows.PointerPressed += new PointerEventHandler(Windows_PointerPressed);
 		}
 
-		public static bool False { get; private set; }
+		//public static bool False { get; private set; }
 
-		private void Windows_PointerPressed(object sender, PointerRoutedEventArgs e)
-		{
-			if (pressedSecondTime == false)
-			{
-				Storyboard firstBrokenGlassOpacity = (Storyboard)this.Resources["FirstBrokenGlassOpacity"];
-				firstBrokenGlassOpacity.Begin();
-				pressedSecondTime = true;
-			}
-			else
-			{
-				Storyboard secondBrokenGlassOpacity = (Storyboard)this.Resources["SecondBrokenGlassOpacity"];
-				secondBrokenGlassOpacity.Begin();
-			}
-		}
+		//private void Windows_PointerPressed(object sender, PointerRoutedEventArgs e)
+		//{
+		//	if (pressedSecondTime == false)
+		//	{
+		//		Storyboard firstBrokenGlassOpacity = (Storyboard)this.Resources["FirstBrokenGlassOpacity"];
+		//		firstBrokenGlassOpacity.Begin();
+		//		pressedSecondTime = true;
+		//	}
+		//	else
+		//	{
+		//		Storyboard secondBrokenGlassOpacity = (Storyboard)this.Resources["SecondBrokenGlassOpacity"];
+		//		secondBrokenGlassOpacity.Begin();
+		//	}
+		//}
 	}
 }
