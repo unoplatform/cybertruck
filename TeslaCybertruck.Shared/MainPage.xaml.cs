@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,24 +14,33 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
-
 namespace TeslaCybertruck
 {
-	/// <summary>
-	/// An empty page that can be used on its own or navigated to within a Frame.
-	/// </summary>
 	public sealed partial class MainPage : Page
 	{
+		private bool pressedSecondTime = False;
+
 		public MainPage()
 		{
 			this.InitializeComponent();
+			Windows.PointerPressed += new PointerEventHandler(Windows_PointerPressed);
+		}
 
-            // iterate through storyboards and start them
-            this.Resources
-                .Select(resource => resource.Value as Storyboard)
-                .Trim() // ignore non storyboards
-                .ForEach(storyboard => storyboard.Begin());
+		public static bool False { get; private set; }
+
+		private void Windows_PointerPressed(object sender, PointerRoutedEventArgs e)
+		{
+			if (pressedSecondTime == false)
+			{
+				Storyboard firstBrokenGlassOpacity = (Storyboard)this.Resources["FirstBrokenGlassOpacity"];
+				firstBrokenGlassOpacity.Begin();
+				pressedSecondTime = true;
+			}
+			else
+			{
+				Storyboard secondBrokenGlassOpacity = (Storyboard)this.Resources["SecondBrokenGlassOpacity"];
+				secondBrokenGlassOpacity.Begin();
+			}
 		}
 	}
 }
