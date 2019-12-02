@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -18,28 +19,44 @@ namespace TeslaCybertruck
 {
 	public sealed partial class MainPage : Page
 	{
-		//private bool pressedSecondTime = false;
-
 		public MainPage()
 		{
 			this.InitializeComponent();
-			//WindowsArea.PointerPressed += new PointerEventHandler(Windows_PointerPressed);
+			root.PointerPressed += new PointerEventHandler(Windows_PointerPressed);
 		}
 
-		//private void Windows_PointerPressed(object sender, PointerRoutedEventArgs e)
-		//{
-		//	if (pressedSecondTime == false)
-		//	{
-		//		Storyboard firstBrokenGlassOpacity = (Storyboard)this.Resources["FirstBrokenGlassOpacity"];
-		//		firstBrokenGlassOpacity.Begin();
-		//		pressedSecondTime = true;
-		//	}
-		//	else
-		//	{
-		//		Storyboard secondBrokenGlassOpacity = (Storyboard)this.Resources["SecondBrokenGlassOpacity"];
-		//		secondBrokenGlassOpacity.Begin();
-		//	}
-		//}
+
+		public bool FirstGlassBroken
+		{
+			get => (bool)GetValue(FirstGlassBrokenProperty);
+			set => SetValue(FirstGlassBrokenProperty, value);
+		}
+
+		public static readonly DependencyProperty FirstGlassBrokenProperty =
+			DependencyProperty.Register("FirstGlassBroken", typeof(bool), typeof(MainPage), new PropertyMetadata(false));
+
+		public bool SecondGlassBroken
+		{
+			get => (bool)GetValue(SecondGlassBrokenProperty);
+			set => SetValue(SecondGlassBrokenProperty, value);
+		}
+
+		// Using a DependencyProperty as the backing store for SecondBrokenGlass.  This enables animation, styling, binding, etc...
+		public static readonly DependencyProperty SecondGlassBrokenProperty =
+			DependencyProperty.Register("SecondGlassBroken", typeof(bool), typeof(MainPage), new PropertyMetadata(false));
+
+
+		private void Windows_PointerPressed(object sender, PointerRoutedEventArgs e)
+		{
+			if (!FirstGlassBroken)
+			{
+				FirstGlassBroken = true;
+			}
+			else
+			{
+				SecondGlassBroken = true;
+			}
+		}
 	}
 }
 
