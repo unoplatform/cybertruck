@@ -6,6 +6,12 @@
     <WasmHead>true</WasmHead>
     <DefineConstants>$(DefineConstants);__WASM__</DefineConstants>
     <NoWarn>NU1701</NoWarn>
+    
+    <!-- 
+    https://github.com/unoplatform/Uno.Wasm.Bootstrap/issues/128, to be 
+    removed when Boostrapper 1.1 is released.
+    -->
+    <MonoRuntimeDebuggerEnabled>true</MonoRuntimeDebuggerEnabled>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="..\TeslaCybertruck.UWP\Assets\*.png" Link="Assets\%(FileName)%(Extension)" />
@@ -16,18 +22,6 @@
   </ItemGroup>
   <ItemGroup>
     <LinkerDescriptor Include="LinkerConfig.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <!-- 
-    This item group is required by the project templace because of the
-    new SDK-Style project, otherwise some files are not aded automatically.
-    
-    You can safely remove this ItemGroup completely.
-    -->
-    <Compile Remove="Program.cs" />
-    <Compile Include="Program.cs" />
-    <Content Include="LinkerConfig.xml" />
-    <Content Include="wwwroot/web.config" />
   </ItemGroup>
   <ItemGroup>
     <!-- Note that for WebAssembly version 1.1.1 of the console logger required -->
