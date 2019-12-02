@@ -1,4 +1,5 @@
 ﻿using System;
+using Uno.Foundation;
 using Windows.UI.Xaml;
 
 namespace TeslaCybertruck.Wasm
@@ -9,6 +10,8 @@ namespace TeslaCybertruck.Wasm
 
 		static int Main(string[] args)
 		{
+			WebAssemblyRuntime.InvokeJS("Uno.UI.Demo.Analytics.reportPageView('main');");
+
 			Windows.UI.Xaml.Application.Start(_ => _app = new App());
 
 			return 0;
