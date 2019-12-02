@@ -18,15 +18,13 @@ namespace TeslaCybertruck
 {
 	public sealed partial class MainPage : Page
 	{
-		//private bool pressedSecondTime = False;
+		//private bool pressedSecondTime = false;
 
 		public MainPage()
 		{
 			this.InitializeComponent();
-			//Windows.PointerPressed += new PointerEventHandler(Windows_PointerPressed);
+			//WindowsArea.PointerPressed += new PointerEventHandler(Windows_PointerPressed);
 		}
-
-		//public static bool False { get; private set; }
 
 		//private void Windows_PointerPressed(object sender, PointerRoutedEventArgs e)
 		//{
@@ -44,3 +42,4 @@ namespace TeslaCybertruck
 		//}
 	}
 }
+
