@@ -1,0 +1,2 @@
+jobs:
+- template: .vsts-ci-windows.yml

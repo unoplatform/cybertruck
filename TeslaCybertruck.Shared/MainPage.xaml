@@ -40,7 +40,7 @@
 		<!--<Storyboard x:Key="FirstBrokenGlassOpacity">
 			<DoubleAnimation From="0"
 							 To="0.8"
-							 Duration="0:0:1"
+						 Duration="0:0:1"
 							 Storyboard.TargetName="FirstBrokenGlass"
 							 Storyboard.TargetProperty="Opacity" />
 		</Storyboard>
@@ -359,7 +359,7 @@
 					  Fill="White"
 					  Opacity="0" />
 
-				<Path x:Name="Windows"
+				<Path x:Name="DoorWindows"
 					  Fill="Transparent"
 					  IsHitTestVisible="True"
 					  Data="M 592.11354,38.294373 333.25,56.3125 458.4375,13.125 590.3125,25.8125 Z">

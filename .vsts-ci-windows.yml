@@ -1,0 +1,67 @@
+jobs:
+- job: Desktop
+  variables:
+    ANDROID_NDK_HOME: C:\Microsoft\AndroidNDK64\android-ndk-r15c
+    ANDROID_NDK_PATH: C:\Microsoft\AndroidNDK64\android-ndk-r15c
+    AndroidNdkDirectory: C:\Microsoft\AndroidNDK64\android-ndk-r15c
+
+  pool:
+    name: "Hosted VS2017"
+
+  workspace:
+    clean: all
+    
+  steps:
+  - checkout: self
+    clean: true
+    lfs: true
+
+  - task: UseDotNet@2
+    displayName: 'Use .Net Core runtime 2.2.0'
+    inputs:
+      packageType: runtime
+      version: 2.2.0
+
+  - task: nventiveCanaryUpdater@5
+    displayName: 'Canary Update'
+    condition: startsWith(variables['Build.SourceBranch'], 'refs/heads/canaries')
+    inputs:
+      solution: Cybertruck.sln
+      branchToMerge: uno
+      summaryFile: '$(Build.ArtifactStagingDirectory)/Canary.md'
+      resultFile: '$(Build.ArtifactStagingDirectory)/result.json'
+      nugetUpdaterVersion: 2.0.2
+      packageAuthor: nventive
+
+  - task: gittools.gitversion.gitversion-task.GitVersion@4
+    inputs:
+      updateAssemblyInfo: false
+
+  - task: MSBuild@1
+    inputs:
+      solution: Cybertruck.sln
+      msbuildLocationMethod: version
+      msbuildVersion: latest
+      msbuildArchitecture: x86
+      msbuildArguments: /r /p:CheckExclusions=True /p:Configuration=Release /bl:$(build.artifactstagingdirectory)\build.binlog /p:AndroidSigningKeyPass=$(KeystorePassword) /p:AndroidSigningStorePass=$(KeystorePassword) 
+      clean: false
+      maximumCpuCount: true
+      restoreNugetPackages: false
+      logProjectEvents: false
+      createLogFile: false
+ 
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: $(build.sourcesdirectory)/TeslaCybertruck.Wasm/bin/Release/netstandard2.0/dist
+      Contents: "**/*.*"
+      TargetFolder: $(build.artifactstagingdirectory)\wasm
+      CleanTargetFolder: false
+      OverWrite: false
+      flattenFolders: false
+
+  - task: PublishBuildArtifacts@1
+    condition: always()
+    inputs:
+      PathtoPublish: $(build.artifactstagingdirectory)
+      ArtifactName: drop
+      ArtifactType: Container
