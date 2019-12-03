@@ -7,7 +7,7 @@
 	  xmlns:banner="using:Uno.UI.Sample.Banner"
 	  mc:Ignorable="d">
 	<Page.Resources>
-		<DataTemplate x:Key="TeslaWheel">
+		<DataTemplate x:Key="CybertruckWheel">
 			<Grid Height="93"
 				  Width="93">
 				<Path Data="M 46.089844,0.2695312 C 33.98827,0.28129123 21.966056,5.2747481 13.417266,13.840169 4.8684762,22.40559 -0.10160543,34.437486 -0.0898454,46.539061 -0.07808537,58.640635 4.9153715,70.662849 13.480792,79.211639 22.046213,87.760428 34.07811,92.73051 46.179684,92.71875 58.281258,92.70699 70.303472,87.713533 78.852262,79.148112 87.401052,70.582691 92.371133,58.550795 92.359373,46.449221 92.347613,34.347646 87.354156,22.325432 78.788736,13.776643 70.223315,5.2278528 58.191418,0.25777117 46.089844,0.2695312 Z"
@@ -52,13 +52,13 @@
 										 To="-360"
 										 Duration="0:0:0.5"
 										 RepeatBehavior="Forever"
-										 Storyboard.TargetName="TeslaLeftWheel"
+										 Storyboard.TargetName="CybertruckLeftWheel"
 										 Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)" />
 						<DoubleAnimation From="0"
 										 To="-360"
 										 Duration="0:0:0.5"
 										 RepeatBehavior="Forever"
-										 Storyboard.TargetName="TeslaRightWheel"
+										 Storyboard.TargetName="CybertruckRightWheel"
 										 Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)" />
 						<DoubleAnimation From="0.5"
 										 To="1"
@@ -336,8 +336,8 @@
 					<Grid Margin="245,0,0,5"
 						  VerticalAlignment="Bottom"
 						  HorizontalAlignment="Left">
-						<ContentControl x:Name="TeslaLeftWheel"
-										ContentTemplate="{StaticResource TeslaWheel}"
+						<ContentControl x:Name="CybertruckLeftWheel"
+										ContentTemplate="{StaticResource CybertruckWheel}"
 										RenderTransformOrigin="0.5,0.5">
 							<ContentControl.RenderTransform>
 								<RotateTransform />
@@ -351,8 +351,8 @@
 					<Grid Margin="0,0,105,5"
 						  VerticalAlignment="Bottom"
 						  HorizontalAlignment="Right">
-						<ContentControl x:Name="TeslaRightWheel"
-										ContentTemplate="{StaticResource TeslaWheel}"
+						<ContentControl x:Name="CybertruckRightWheel"
+										ContentTemplate="{StaticResource CybertruckWheel}"
 										RenderTransformOrigin="0.5,0.5">
 							<ContentControl.RenderTransform>
 								<RotateTransform />
