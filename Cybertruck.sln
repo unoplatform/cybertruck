@@ -3,22 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "TeslaCybertruck.Shared", "TeslaCybertruck.Shared\TeslaCybertruck.Shared.shproj", "{6279C845-92F8-4333-AB99-3D213163593C}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CyberTruck.Shared", "CyberTruck.Shared\CyberTruck.Shared.shproj", "{6279C845-92F8-4333-AB99-3D213163593C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeslaCybertruck.Droid", "TeslaCybertruck.Droid\TeslaCybertruck.Droid.csproj", "{8857F872-1FBE-4164-A505-657D14F7AF2A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberTruck.Droid", "CyberTruck.Droid\CyberTruck.Droid.csproj", "{8857F872-1FBE-4164-A505-657D14F7AF2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeslaCybertruck.iOS", "TeslaCybertruck.iOS\TeslaCybertruck.iOS.csproj", "{8A68A900-9633-4FBE-AD55-EABECD4BDE22}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberTruck.iOS", "CyberTruck.iOS\CyberTruck.iOS.csproj", "{8A68A900-9633-4FBE-AD55-EABECD4BDE22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeslaCybertruck.UWP", "TeslaCybertruck.UWP\TeslaCybertruck.UWP.csproj", "{C8422A7A-AE39-4001-889E-3F9754E9A2C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberTruck.UWP", "CyberTruck.UWP\CyberTruck.UWP.csproj", "{C8422A7A-AE39-4001-889E-3F9754E9A2C3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeslaCybertruck.Wasm", "TeslaCybertruck.Wasm\TeslaCybertruck.Wasm.csproj", "{8A0C18C0-012F-4976-837F-399CEA06E2B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CyberTruck.Wasm", "CyberTruck.Wasm\CyberTruck.Wasm.csproj", "{8A0C18C0-012F-4976-837F-399CEA06E2B0}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		TeslaCybertruck.Shared\TeslaCybertruck.Shared.projitems*{6279c845-92f8-4333-ab99-3d213163593c}*SharedItemsImports = 13
-		TeslaCybertruck.Shared\TeslaCybertruck.Shared.projitems*{8857f872-1fbe-4164-a505-657d14f7af2a}*SharedItemsImports = 4
-		TeslaCybertruck.Shared\TeslaCybertruck.Shared.projitems*{8a68a900-9633-4fbe-ad55-eabecd4bde22}*SharedItemsImports = 4
-		TeslaCybertruck.Shared\TeslaCybertruck.Shared.projitems*{c8422a7a-ae39-4001-889e-3f9754e9a2c3}*SharedItemsImports = 4
+		CyberTruck.Shared\CyberTruck.Shared.projitems*{6279c845-92f8-4333-ab99-3d213163593c}*SharedItemsImports = 13
+		CyberTruck.Shared\CyberTruck.Shared.projitems*{8857f872-1fbe-4164-a505-657d14f7af2a}*SharedItemsImports = 4
+		CyberTruck.Shared\CyberTruck.Shared.projitems*{8a68a900-9633-4fbe-ad55-eabecd4bde22}*SharedItemsImports = 4
+		CyberTruck.Shared\CyberTruck.Shared.projitems*{c8422a7a-ae39-4001-889e-3f9754e9a2c3}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
