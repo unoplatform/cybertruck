@@ -22,7 +22,7 @@ namespace TeslaCybertruck
 		public MainPage()
 		{
 			this.InitializeComponent();
-			root.PointerPressed += new PointerEventHandler(Windows_PointerPressed);
+			DoorWindows.PointerPressed += new PointerEventHandler(Windows_PointerPressed);
 		}
 
 
@@ -41,24 +41,8 @@ namespace TeslaCybertruck
 			set => SetValue(SecondGlassBrokenProperty, value);
 		}
 
-        private async void CustomizeIt_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                await Windows.System.Launcher.LaunchUriAsync(new Uri("https://playground.platform.uno/#cybertruck"));
-            }
-            catch
-            {
-                // Oops
-            }
-            
-        }
-
-
-		// Using a DependencyProperty as the backing store for SecondBrokenGlass.  This enables animation, styling, binding, etc...
 		public static readonly DependencyProperty SecondGlassBrokenProperty =
 			DependencyProperty.Register("SecondGlassBroken", typeof(bool), typeof(MainPage), new PropertyMetadata(false));
-
 
 		private void Windows_PointerPressed(object sender, PointerRoutedEventArgs e)
 		{
@@ -71,6 +55,19 @@ namespace TeslaCybertruck
 				SecondGlassBroken = true;
 			}
 		}
+
+		private async void CustomizeIt_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                await Windows.System.Launcher.LaunchUriAsync(new Uri("https://playground.platform.uno/#cybertruck"));
+            }
+            catch
+            {
+                // Oops
+            }
+            
+        }
 	}
 }
 
