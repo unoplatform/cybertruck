@@ -10,8 +10,10 @@
     <!-- 
     https://github.com/unoplatform/Uno.Wasm.Bootstrap/issues/128, to be 
     removed when Boostrapper 1.1 is released.
+    Force compression even when debugging is enabled.
     -->
     <MonoRuntimeDebuggerEnabled>true</MonoRuntimeDebuggerEnabled>
+    <WasmShellGenerateCompressedFiles>true</WasmShellGenerateCompressedFiles>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="..\CyberTruck.UWP\Assets\*.png" Link="Assets\%(FileName)%(Extension)" />
