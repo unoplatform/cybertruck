@@ -52,7 +52,7 @@ jobs:
  
   - task: CopyFiles@2
     inputs:
-      SourceFolder: $(build.sourcesdirectory)/TeslaCybertruck.Wasm/bin/Release/netstandard2.0/dist
+      SourceFolder: $(build.sourcesdirectory)/CyberTruck.Wasm/bin/Release/netstandard2.0/dist
       Contents: "**/*.*"
       TargetFolder: $(build.artifactstagingdirectory)\wasm
       CleanTargetFolder: false
